@@ -1,0 +1,31 @@
+{
+  "name": "meteor-check",
+  "version": "1.0.6",
+  "description": "Check whether a value matches a pattern library from Meteor made compatible for Nodejs and Browserify",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "node build.js",
+    "test": "npm run prepublish && mocha --check-leaks test.js"
+  },
+  "keywords": [
+    "Meteor",
+    "check",
+    "raix"
+  ],
+  "author": "Morten Henriksen",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/raix/npm-meteor-check.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "1.7.x",
+    "ejson": "2.0.1",
+    "fibers": "1.0.5"
+  },
+  "devDependencies": {
+    "assume": "1.1.x",
+    "mocha": "2.2.x",
+    "pre-commit": "1.0.x"
+  }
+}
