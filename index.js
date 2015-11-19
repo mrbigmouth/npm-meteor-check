@@ -1,12 +1,10 @@
 module.exports = (function () {
 "use strict";
-var Meteor = { isServer: true, _noYieldsAllowed:function nope(f) { return f(); }};
+var Meteor = { isServer: false, isClient: true, _noYieldsAllowed:function nope(f) { return f(); }};
 var Npm = { require: require };
 var check, Match;
 var _ = require("underscore");
 var EJSON = require("ejson");
-if (Meteor.isServer)
-  var Future = Npm.require('fibers/future');
 
 if (typeof __meteor_runtime_config__ === 'object' &&
     __meteor_runtime_config__.meteorRelease) {
@@ -292,7 +290,7 @@ Meteor.Error.prototype.clone = function () {
 
 // Fiber-aware implementation of dynamic scoping, for use on the server
 
-var Fiber = Npm.require('fibers');
+var Fiber = {};
 
 var nextSlot = 0;
 
